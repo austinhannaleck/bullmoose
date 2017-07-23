@@ -1,0 +1,114 @@
+/********************************************
+* GENERAL STYLING
+********************************************/
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Coda', sans-serif;
+}
+
+html, body
+{
+    height: 100%; /* Needed to stretch navbar content to full window height */
+}
+
+/* Regular columns */
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+/* Columns that have specific responsive logic */
+.rspn-col-1 {width: 8.33%;}
+.rspn-col-2 {width: 16.66%;}
+.rspn-col-3 {width: 25%;}
+.rspn-col-4 {width: 33.33%;}
+.rspn-col-5 {width: 41.66%;}
+.rspn-col-6 {width: 50%;}
+.rspn-col-7 {width: 58.33%;}
+.rspn-col-8 {width: 66.66%;}
+.rspn-col-9 {width: 75%;}
+.rspn-col-10 {width: 83.33%;}
+.rspn-col-11 {width: 91.66%;}
+.rspn-col-12 {width: 100%;}
+
+[class*="col-"]{
+    float: left;
+    padding: 15px; /* adjust as needed */
+    /*border: 1px solid blue;*/
+}
+
+.row{
+    width: 100%;   
+    float: left;
+    /* pading: 15px */
+    /*border: 1px solid blue;*/    
+}
+
+
+@media only screen and (max-width: 1065px) {
+    /* For mobile phones or small screen: */
+    [class*="col-"] {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+
+a:visited{
+    color: inherit;
+}
+
+.img-responsive{
+    max-width: 100%;
+}
+
+/********************************************
+* NAV STYLING
+*
+* The navbar changes into an accordion style
+* once screen size reaches a certain minimum
+********************************************/
+.nav
+{
+    height: 100%;
+    background-image: url(images/wood-background.png);
+    background-attachment: fixed;
+    background-position: left;
+}
+
+.navbar li
+{
+    list-style-type: none;
+    color: white;
+}
+
+
+/********************************************
+* FOOTER STYLING
+*
+* The navbar changes into an accordion style
+* once screen size reaches a certain minimum
+********************************************/
+
+footer
+{
+    height: 75px;
+    background-color: rgb(60,60,60);
+    line-height: 75px;
+    text-align: center;
+    color: white;
+}
