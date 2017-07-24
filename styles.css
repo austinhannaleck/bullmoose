@@ -90,12 +90,45 @@ a:visited{
     background-position: left;
 }
 
+.nav-container
+{
+    margin-top: 20px;
+    text-align: center;
+}
+
 .navbar li
 {
     list-style-type: none;
     color: white;
+    margin-top: 10px;
 }
 
+.logo-div
+{
+    text-align: center;
+}
+
+/* Placeholder for logo */
+#nav-logo 
+{
+    background-color: white;
+    height: 250px;
+    width: 250px;
+    margin: auto;
+    max-width: 100%;
+    line-height: 250px;
+}
+
+/********************************************
+* MAIN STYLING
+*
+* The navbar changes into an accordion style
+* once screen size reaches a certain minimum
+********************************************/
+main
+{
+    background-color: rgb(240,234,214);
+}
 
 /********************************************
 * FOOTER STYLING
