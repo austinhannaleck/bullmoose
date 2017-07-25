@@ -76,6 +76,10 @@ a:visited{
     max-width: 100%;
 }
 
+h1
+{
+    font-size: 2.5em;
+}
 /********************************************
 * NAV STYLING
 *
@@ -85,22 +89,49 @@ a:visited{
 .nav
 {
     height: 100%;
-    background-image: url(images/wood-background.png);
-    background-attachment: fixed;
+    background-color: rgb(240,240,240);
     background-position: left;
 }
 
 .nav-container
 {
+    margin-right: -15px; /* Negative column padding */
     margin-top: 20px;
     text-align: center;
+    float: center;
 }
 
 .navbar li
 {
     list-style-type: none;
-    color: white;
+    color: black;
     margin-top: 10px;
+    font-family: 'Anton', sans-serif;
+    font-size: 2.5em;
+    background: linear-gradient(to right, white 50%, black 50%);
+    background-size: 200% 100%;
+    background-position:left bottom;
+    transition: background-position 2s, color 2s;
+}
+
+.navbar li:hover
+{
+    color: white;
+    background: linear-gradient(to right, white 34%, black 65%);
+    background-position: right bottom;
+    background-size: 300% 100%;
+}
+
+@keyframes nav-hover
+{
+    from{background-color: white;}
+    to{background-color: black;}
+}
+
+.beard-submenu
+{
+    margin-left: 50px;
+    font-size: 0.9em;
 }
 
 .logo-div
@@ -109,14 +140,15 @@ a:visited{
 }
 
 /* Placeholder for logo */
-#nav-logo 
+.logo
 {
-    background-color: white;
-    height: 250px;
-    width: 250px;
-    margin: auto;
     max-width: 100%;
-    line-height: 250px;
+}
+
+.social-media
+{
+    margin-top: 75px;
+    text-align: center;
 }
 
 /********************************************
@@ -127,7 +159,31 @@ a:visited{
 ********************************************/
 main
 {
-    background-color: rgb(240,234,214);
+    background-image: url(images/wood-background.png);
+    background-position: left;
+    height: 100%;
+}
+
+.intro
+{
+    color: white;
+    padding: 0 50px 0 50px;
+}
+
+.intro h1
+{
+    margin-bottom: 10px;
+}
+.slideshow
+{
+    margin: auto;
+    height: 300px;
+    border: 1px solid blue;
+    margin-bottom: 20px;
+    
+    /* filler */
+    text-align: center;
+    line-height: 300px;
 }
 
 /********************************************
