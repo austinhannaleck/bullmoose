@@ -5,7 +5,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Coda', sans-serif;
+    font-family: 'Oswald', sans-serif;
 }
 
 html, body
@@ -27,6 +27,12 @@ html, body
 .col-11 {width: 91.66%;}
 .col-12 {width: 100%;}
 
+/* Used to eliminate initial 15px padding from main */
+.main-column-9
+{
+    float: left;
+    width: 75%;
+}
 /* Columns that have specific responsive logic */
 .rspn-col-1 {width: 8.33%;}
 .rspn-col-2 {width: 16.66%;}
@@ -57,7 +63,7 @@ html, body
 
 @media only screen and (max-width: 1065px) {
     /* For mobile phones or small screen: */
-    [class*="col-"] {
+    [class*="col-"], .main-column-9 {
         width: 100%;
         text-align: center;
     }
@@ -78,15 +84,17 @@ a:visited{
 
 h1
 {
-    font-size: 2.5em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
 }
 h2
 {
-    font-size: 2em;
+    font-family: 'Oswald', sans-serif;
+    font-size: 2.5em;
 }
 h3
 {
-    font-size: 1.5em;
+    font-size: 2em;
 }
 /********************************************
 * NAV STYLING
@@ -96,14 +104,16 @@ h3
 ********************************************/
 .nav
 {
+    position: fixed;
+    padding: 0px;
     height: 100%;
-    background-color: rgb(220,220,220);
-    background-position: left;
+    background-image: url(images/wood_background_sidebar.png);
+    background-size: contain;
 }
 
 .nav-container
-{
-    margin-right: -15px; /* Negative column padding */
+{ 
+    padding: 20px 0;
     margin-top: 20px;
     text-align: center;
     float: center;
@@ -112,11 +122,11 @@ h3
 .navbar li
 {
     list-style-type: none;
-    color: black;
-    margin-top: 10px;
-    font-family: 'Anton', sans-serif;
+    color: white;
+    margin-top: 30px;
+    font-family: 'Oswald', sans-serif;
     font-size: 2.5em;
-    background: linear-gradient(to right, rgb(220,220,220) 50%, black 50%);
+   /* background: linear-gradient(to right, rgba(0,89,220, 0) 50%, rgb(252,92,92) 50%);*/
     background-size: 200% 100%;
     background-position:left bottom;
     transition: background-position 2s, color 2s;
@@ -125,7 +135,7 @@ h3
 .navbar li:hover
 {
     color: white;
-    background: linear-gradient(to right, rgb(220,220,220) 34%, black 65%);
+   /* background: linear-gradient(to right, rgb(0,89,220) 34%, rgb(252,92,92) 65%);*/
     background-position: right bottom;
     background-size: 300% 100%;
 }
@@ -144,6 +154,7 @@ h3
 
 .logo-div
 {
+    padding: 20px 0;
     text-align: center;
 }
 
@@ -167,43 +178,39 @@ h3
 ********************************************/
 main
 {
-    background-image: url(images/wood-background.png);
-    background-position: left;
-    height: 100%;
+    height: auto;
+    position: absolute;
+    right: 0; /* anchor main to right side of page */
+}
+
+.intro-div
+{
+    padding: 10px;
     color: white;
-}
-
-.intro
-{
-    padding: 0 50px 0 50px;
-}
-
-.intro h1
-{
-    margin-bottom: 10px;
-    border-bottom: 1px solid white;
-}
-.slideshow
-{
-    margin: auto;
-    height: 300px;
-    border: 1px solid blue;
-    margin-top: 20px;
-    margin-bottom: 5px;
-    /* filler */
+    height: 800px;
     text-align: center;
-    line-height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    background-image: url(images/bridge.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.intro-div h1, .intro-div h2
+{
+    font-weight: 300;
+    line-height: normal;
 }
 
-.reasons
+.intro-div h1
 {
-    text-align: center;
-    padding: 0 50px;
+    font-size: 4em;
 }
 
-.reasons h2
+.intro-div h2
 {
-    margin-bottom: 10px;
+    font-size: 3em;
 }
 
 /********************************************
