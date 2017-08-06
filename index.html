@@ -7,9 +7,14 @@
         <title>Bullmoose Man Made</title>
         <meta name="description" content="Description here">
         <link rel="stylesheet" href="styles.css">
+        
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="slick.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="slick.css">
     </head>
     <body>
         <nav class="nav col-3">
@@ -41,7 +46,99 @@
                 <h1>Expedition</h1>
                 <h2>Discover a scent as strong as your sense of adventure.</h2>
             </section>
-        
+            <section class="opening row">
+                <div class="col-8">
+                    <div class="opening-text">
+                        <h1>Welcome to Bull Moose Man Made Products</h1>
+                        <p>
+                            Fusce ac porta felis. In in erat ac augue porttitor semper. Nulla a aliquet dolor. Donec gravida laoreet dui, vel sollicitudin sapien ornare sed. Ut gravida, felis at iaculis   tincidunt, augue diam sollicitudin erat, vel ultrices orci ligula quis nibh. Aenean magna lectus, accumsan non egestas non, dictum sit amet ex. Vivamus gravida ipsum leo, ut ultrices lacus malesuada at. Mauris tempus a justo vel fringilla. In mauris risus, dignissim eget egestas ac, porttitor a elit. In ligula turpis, faucibus hendrerit tristique sed, tincidunt sit amet sem. Interdum et malesuada fames ac ante ipsum primis in faucibus.
+                        </p>
+                    </div> 
+                    <div class="opening-img">
+                    </div>
+                </div>
+                <section class="col-4 testimonials">
+                    <h1>Testimonials</h1>
+                    <h3>Here's what our fans have to say</h3>
+                    <section class="quotes row">
+                     <div class="bubble">
+                         <blockquote>I refuse to accept the view that mankind is so tragically bound to the starless midnight of racism and war that the bright daybreak of peace and brotherhood can never become a reality... I believe that unarmed truth and unconditional love will have the final word.
+                     </blockquote>
+                         <div></div>
+                         <cite> Martin Luther King, Jr.</cite>
+                    </div>
+                         <div class="bubble">
+                         <blockquote> Peace is not a relationship of nations. It is a condition of mind brought about by a serenity of soul. Peace is not merely the absence of war. It is also a state of mind. Lasting peace can come only to peaceful people.
+                     </blockquote>
+                         <div></div>
+                         <cite> Jawaharlal Nehru</cite> 
+                    </div>
+                       <div class="bubble">
+                         <blockquote> Forgiveness is not always easy. At times, it feels more painful than the wound we suffered, to forgive the one that inflicted it. And yet, there is no peace without forgiveness.
+                     </blockquote>
+                         <div></div>
+                         <cite> Marianne Williamson</cite> 
+                    </div>
+                       <div class="bubble">
+                         <blockquote>Of all our dreams today there is none more important - or so hard to realise - than that of peace in the world. May we never lose our faith in it or our resolve to do everything that can be done to convert it one day into reality. </blockquote>
+                         <div></div>
+                         <cite> Lester B. Pearson</cite> 
+                    </div>
+                </section>
+                
+            </section>
+            </section>
+            
+            <!--
+            <section class="row testimonials">
+                <div class="col-12">
+                    <h1>Testimonials</h1>
+                    <h3>Here's what our fans have to say</h3>   
+                </div>
+                <section class="quotes row">
+                     <div class="bubble">
+                         <blockquote>I refuse to accept the view that mankind is so tragically bound to the starless midnight of racism and war that the bright daybreak of peace and brotherhood can never become a reality... I believe that unarmed truth and unconditional love will have the final word.
+                     </blockquote>
+                         <div></div>
+                         <cite> Martin Luther King, Jr.</cite>
+                    </div>
+                         <div class="bubble">
+                         <blockquote> Peace is not a relationship of nations. It is a condition of mind brought about by a serenity of soul. Peace is not merely the absence of war. It is also a state of mind. Lasting peace can come only to peaceful people.
+                     </blockquote>
+                         <div></div>
+                         <cite> Jawaharlal Nehru</cite> 
+                    </div>
+                       <div class="bubble">
+                         <blockquote> Forgiveness is not always easy. At times, it feels more painful than the wound we suffered, to forgive the one that inflicted it. And yet, there is no peace without forgiveness.
+                     </blockquote>
+                         <div></div>
+                         <cite> Marianne Williamson</cite> 
+                    </div>
+                       <div class="bubble">
+                         <blockquote>Of all our dreams today there is none more important - or so hard to realise - than that of peace in the world. May we never lose our faith in it or our resolve to do everything that can be done to convert it one day into reality. </blockquote>
+                         <div></div>
+                         <cite> Lester B. Pearson</cite> 
+                    </div>
+                </section>
+                
+            </section>
+            -->
         </main>
+        
+        <script>
+            $('.quotes').slick({
+                prevArrow: false,
+                nextArrow: false,
+                infinite: true,
+                autoplay: true,
+                autoplaySpeed: 5000,
+                speed: 800,
+                slidesToShow: 1,
+                adaptiveHeight: true
+            });
+            
+            
+            $('.test').slick();
+        </script>
     </body>
 </html>
