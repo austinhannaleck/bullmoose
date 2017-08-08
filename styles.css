@@ -345,10 +345,27 @@ main
     font-weight: 500;
 }
 
+
 #beard-list
 {
-    background-color: rgb(240,240,240);
+    /*background-color: rgb(240,240,240);*/
+    /*background-color: rgb(240,240,240);*/
     padding: 10px;
+    margin-bottom: 10px;
+}
+
+.line-container
+{
+    text-align: center;
+}
+
+.list-bottom
+{
+    width: 150px;
+    margin: auto;
+    display: block;
+    border-bottom: 1px solid rgb(150,150,150);
+    margin-bottom: 20px;
 }
 
 #beard-list li
@@ -360,6 +377,26 @@ main
 
 #beard-list li:not(:first-child):before {
     content: " | ";
+}
+
+.products-button-row
+{
+    text-align: center;
+}
+
+#products-button
+{
+    color: rgb(80,80,80);
+    font-size: 2em;
+    display: block;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+#products-button:hover
+{
+    background-color: rgb(150,150,150);
+    color: white;
+    cursor: pointer;
 }
 
 .product-types

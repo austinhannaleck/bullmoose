@@ -47,7 +47,11 @@
                         <li><span class="green">Expedition</span></li>
                         <li><span class="red">Hearth</span></li>
                     </ul>
+                    <div class="line-container">
+                        <span class="list-bottom"></span>
+                    </div>
                 </div>
+                
                 <h4>The beard world isn't so cut and dry. Look below to figure out what beard product is right for you.</h4>
                 </section>
             
@@ -77,6 +81,10 @@
                         </p>
                     </div>
                 </section>
+            
+            <section class="row products-button-row">
+                <span id="products-button">V</span>
+            </section>
             <section class="beard row">
                 <div class="signature-background product-header-background">
                     <h1>Signature</h1>
@@ -180,11 +188,40 @@
         </main>
         
         <script>
-            $(function(){
+            $(document).ready(function () {
+               
+                $('.product-types').hide();
+                var IsDropdownDisplayed = false;
+                
+                // Items flip
                 $(".flip").flip({
                     trigger: 'hover'
                 });
+       
+            
+            // Product types dropdown display
+            $('#products-button').click(function()
+            {
+                if(true == IsDropdownDisplayed)
+                {
+                    
+                    $('.product-types').hide("medium");
+                    IsDropdownDisplayed = false;
+                }
+                else
+                {
+                    $('.product-types').show("medium");
+                    IsDropdownDisplayed = true;
+                }
+                
             });
+            });
+            
+            
+            
+            
+            
+            
         </script>
     </body>
 </html>
