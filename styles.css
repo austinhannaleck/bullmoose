@@ -134,12 +134,17 @@ h4
    /* background: linear-gradient(to right, rgba(0,89,220, 0) 50%, rgb(252,92,92) 50%);*/
     background-size: 200% 100%;
     background-position:left bottom;
-    transition: background-position 2s, color 2s;
+    transition: background-position 2s, background-color 1s;
+}
+
+.navbar li:not(:first-child)
+{
+    margin-top: 15px;
 }
 
 .navbar li:hover
 {
-    color: white;
+    background-color: rgba(207,72,72,0.5);
    /* background: linear-gradient(to right, rgb(0,89,220) 34%, rgb(252,92,92) 65%);*/
     background-position: right bottom;
     background-size: 300% 100%;
@@ -269,7 +274,7 @@ main
 
 .testimonials h1
 {
-    color: crimson;
+    color: rgb(207,72,72);
     text-transform: uppercase;
 }
 
@@ -329,7 +334,10 @@ main
     height: 400px;
     background-image: url(images/america.jpg);
     background-position: right;
-    line-height: 400px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
     color: white;
 }
@@ -346,8 +354,8 @@ main
 
 .beard-intro
 {
-    background-color: rgb(240,240,240);
-    color: rgb(50,50,50);
+    background-color: rgb(157,22,22);
+    color: white;
     text-align: center;
 }
 
@@ -364,7 +372,7 @@ main
 
 .beard-intro h4
 {
-    background-color: rgb(230,230,230);
+    background-color: rgb(187,52,52);
     padding: 10px 0;
 }
 
@@ -432,8 +440,21 @@ main
 {
     color: rgb(50,50,50);
     text-align: center;
+    text-align: center;
     display: flex;
     /* flex wrap */
+}
+
+.product-type-item
+{
+    background-color: rgb(240,240,240);
+}
+
+.product-type-item h2
+{
+    text-transform: uppercase;
+    color: white;
+    color: rgb(50,50,50);
 }
 
 .product-types img
@@ -453,7 +474,8 @@ main
 
 .signature-items
 {
-
+    padding-bottom: 10px;
+    color: rgb(50,50,50);
 }
 
 .expedition-background
@@ -468,8 +490,14 @@ main
     align-items: center;
     flex-direction: column;
     justify-content: center;
-    line-height: normal;
-    color: white;
+}
+
+.signature-background, .expedition-background, .hearth-background
+{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .hearth-items h3
@@ -484,19 +512,16 @@ main
 {
     background-position: center;
     height: 200px;
+    color: white;
 }
 
 .product-header-background h1
 {
     text-transform: uppercase;
     font-size: 4em;
-    color: white;
 }
 
-.beard
-{
-    margin-bottom: 30px;
-}
+
 .beard div
 {
     text-align: center;
@@ -511,6 +536,7 @@ main
 {
     width: 360px;
     max-width: 100%;
+    border-radius: 8px;
 }
 
 
