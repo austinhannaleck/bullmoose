@@ -31,7 +31,6 @@
                         <li>Oil</li>
                         <li>Balm</li>
                     </ul>v-->
-                    <li>Blah Blah</li>
                     <li>About</li>
                 </ul>
             </div>
@@ -44,7 +43,7 @@
         <main class="main main-column-9">
             <section class="intro-div row">
                 <h1>Expedition</h1>
-                <h2>Discover a scent as strong as your sense of adventure.</h2>
+                <h2><span id="intro-text">Discover a scent as strong as your sense of adventure.</span></h2>
             </section>
             <section class="opening row">
                 <div class="col-8">
@@ -88,9 +87,12 @@
                          <div></div>
                          <cite> Lester B. Pearson</cite> 
                     </div>
-                </section>
+                    </section>
                 
             </section>
+            </section>
+            <section class="row america">
+                <h3>Made in America with only the highest quality ingredients. Try Bullmoose today.</h3>
             </section>
             
             <!--
@@ -143,6 +145,17 @@
             
             
             $('.test').slick();
+            
+            // On hover
+            $('.intro-div').hover(function()
+            {
+                $('#intro-text').text('Check out the new line today');
+                $(this).css('cursor', 'pointer');
+            }, function(){
+                $('#intro-text').text('Discover a scent as strong as your sense of adventure.');
+            }
+                                 
+                                 );
         </script>
     </body>
 </html>

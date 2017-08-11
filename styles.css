@@ -128,8 +128,8 @@ h4
 {
     list-style-type: none;
     color: white;
-    margin-top: 30px;
     font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
     font-size: 2.5em;
    /* background: linear-gradient(to right, rgba(0,89,220, 0) 50%, rgb(252,92,92) 50%);*/
     background-size: 200% 100%;
@@ -202,6 +202,7 @@ main
     background-size: cover;
     background-position: center;
 }
+
 .intro-div h1, .intro-div h2
 {
     font-weight: 300;
@@ -216,6 +217,11 @@ main
 .intro-div h2
 {
     font-size: 3em;
+}
+
+#expedition-text
+{
+    content: 'Hi';
 }
 
 .opening
@@ -318,6 +324,16 @@ main
     color: black;
 }
 
+.america
+{
+    height: 400px;
+    background-image: url(images/america.jpg);
+    background-position: right;
+    line-height: 400px;
+    text-align: center;
+    color: white;
+}
+
 /********************************************
 * BEARD PAGE STYLING
 *
@@ -330,6 +346,7 @@ main
 
 .beard-intro
 {
+    background-color: rgb(240,240,240);
     color: rgb(50,50,50);
     text-align: center;
 }
@@ -343,6 +360,12 @@ main
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 500;
+}
+
+.beard-intro h4
+{
+    background-color: rgb(230,230,230);
+    padding: 10px 0;
 }
 
 
@@ -382,20 +405,26 @@ main
 .products-button-row
 {
     text-align: center;
+    margin-bottom: 5px;
 }
 
 #products-button
 {
-    color: rgb(80,80,80);
-    font-size: 2em;
-    display: block;
+    
+    color: white;
+    
+    background-color: rgb(200,200,200);
+    font-size: 1.5em;
+    display: inline-block;
+    padding: 0px 50px;
     transition: background-color 0.5s, color 0.5s;
 }
 
 #products-button:hover
 {
-    background-color: rgb(150,150,150);
+    
     color: white;
+    background-color: rgb(150,150,150);
     cursor: pointer;
 }
 
@@ -407,6 +436,11 @@ main
     /* flex wrap */
 }
 
+.product-types img
+{
+    width: 250px;
+    max-width: 250px;
+}
 .product-types p
 {
     font-size: 1.2em;
@@ -417,6 +451,11 @@ main
     background-image: url(images/signature-background.jpg);
 }
 
+.signature-items
+{
+
+}
+
 .expedition-background
 {
     background-image: url(images/expedition_background.jpg);
@@ -425,6 +464,19 @@ main
 .hearth-background
 {
     background-image: url(images/hearth-background.jpg);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    line-height: normal;
+    color: white;
+}
+
+.hearth-items h3
+{
+    color: rgb(50, 50, 50);
+    text-align: center;
+    margin: 15px 0;
 }
 
 /* Overall style for all product headers */
@@ -432,7 +484,6 @@ main
 {
     background-position: center;
     height: 200px;
-    line-height: 200px;
 }
 
 .product-header-background h1
