@@ -180,6 +180,31 @@ h4
     text-align: center;
 }
 
+.social-media img
+{
+    width: 50px;
+    max-width: 50px;
+    margin: 0 10px;
+}
+
+.social-media img:hover
+{
+    cursor: pointer;
+}
+
+#insta:hover
+{
+    
+}
+
+/* - Glitchy, investigate fix
+#mailme:hover
+{
+    content: url('images/mail_icon_hover.png');
+    margin: 0 10px;
+}
+*/
+
 /********************************************
 * MAIN STYLING
 *
@@ -276,7 +301,7 @@ main
 
 .testimonials h1
 {
-    color: rgb(207,72,72);
+    color: rgb(10,62,112);
     text-transform: uppercase;
 }
 
@@ -377,7 +402,7 @@ main
 .beard-intro h4
 {
     /*background-color: rgb(187,52,52);*/
-    color: rgb(157,22,22);
+    color: rgb(10,62,112);
     margin-bottom: 30px;
 }
 
