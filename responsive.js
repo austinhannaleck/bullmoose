@@ -1,3 +1,4 @@
+/*
 $(document).ready(function()
                  {
     $('a[href^="#"]').on('click', function(event) {
@@ -13,25 +14,50 @@ $(document).ready(function()
 
 });
 })
+*/
 
-var SeoImage = document.getElementById('seo-img');
-
-window.onresize = function(event)
-{
-    if(1392 <= window.innerWidth)
-    {
-            document.getElementById('seo-img').src="Images/main/business.png";
+/* Used to calculate actual width and height of viewport */
+function viewport() {
+    var e = window, a = 'inner';
+    if (!('innerWidth' in window )) {
+        a = 'client';
+        e = document.documentElement || document.body;
     }
-    else if(1065 >= window.innerWidth)
-        {
-            document.getElementById('seo-img').src="Images/main/business.png";
-        }
-    else
-        {
-            document.getElementById('seo-img').src="Images/main/business_sideways.png";
-        }
+    return { width : e[ a+'Width' ] , height : e[ a+'Height' ] };
 }
 
+function CheckWindow()
+{
+    if(1065 > viewport().width)
+            {
+                $("#alternate-navbar").show();
+                $("#nav").hide();
+            }
+        else
+            {
+               $("#alternate-navbar").hide();
+                $("#nav").show(); 
+            }   
+}
+$(document).ready(function () {
+    CheckWindow();
+    
+    window.onresize = function(Event)
+    {
+        if(1065 > viewport().width)
+            {
+                $("#alternate-navbar").show();
+                $("#nav").hide();
+            }
+        else
+            {
+               $("#alternate-navbar").hide();
+                $("#nav").show(); 
+            }
+    }
+    
+})
+    
 /*
 const WINDOW_UPPER_MIN = 1320;
 const WINDOW_LOWER_MIN = 767;
@@ -77,18 +103,6 @@ window.onresize = function(Event)
     }
 }
 */
-
-// SERVICES SELECTION //
-
-function setActive()
-{ 
-    $(this).addClass('service-active');
-}
-
-$("#seo-selection").click(function()
-                          {
-    $(this).addClass("service-active");
-});
 
 
 
