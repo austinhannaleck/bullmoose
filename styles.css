@@ -319,6 +319,7 @@ main
 
 .opening-text
 {
+    font-weight: 300;
     margin-bottom: 15px;
 }
 
@@ -336,8 +337,16 @@ main
 
 .opening p
 {
-    font-size: 1.2em;
+    font-size: 1.8em;
+    
     text-align: justify;
+}
+
+.signed
+{
+    float: right;
+    font-size: 2em;
+    font-family: 'Pacifico', cursive;
 }
 
 .opening-img
@@ -438,7 +447,6 @@ main
 
 .beard-intro
 {
-    padding: 0 250px;
     background-color: rgb(250,250,250);
     text-align: center;
 }
@@ -447,9 +455,8 @@ main
 {
     font-size: 1.2em;
 }
-.beard-intro h1
+.beard-intro-header h1
 {
-    margin-top: 10px;
     background-color: rgb(157,22,22);
         /*rgb(10,62,112);*/
     padding: 10px 0;
@@ -464,6 +471,7 @@ main
     /*background-color: rgb(187,52,52);*/
     color: rgb(157,22,22);
     margin: 10px 0 30px 0;
+    padding: 10px;
 }
 
 
@@ -530,21 +538,12 @@ main
 {
     background-color: rgb(250,250,250);
     color: rgb(50,50,50);
-    text-align: center;
-    text-align: center;
-    display: flex;
     margin-bottom: 10px;
-    flex-wrap: wrap;
-}
-
-.product-types h2
-{
-    color: rgb(157,22,22);
-    font-weight: 400;
+    padding: 0 10px 10px 10px;
 }
 
 .product-type-item
-
+{
     background-color: rgb(240,240,240);
 }
 
@@ -553,6 +552,8 @@ main
     color:  rgb(157,22,22)!;
     text-transform: uppercase;
     margin-bottom: 5px;
+    color: rgb(157,22,22);
+    font-weight: 400;
 }
 
 .product-types img
@@ -562,6 +563,9 @@ main
 }
 .product-types p
 {
+    text-indent: 0pxl
+    padding: 10px;
+    display: inline;
     font-size: 1.2em;
 }
 
@@ -660,48 +664,19 @@ main
 
 .products-header
 {
-    padding: 0 100px;
+    background-color: rgba(255,255,255, 0.);
     color: rgb(50,50,50);
     font-weight: 400;
 }
 
 .products-header h1
 {
-    background-color: rgba(157,22,22, 0.8);
+    background-color: rgb(157,22,22);;
     padding: 10px;
     color: white;
     text-transform: uppercase;
     font-size: 4em;
     font-weight: 400;
-    border-radius: 0 0 15px 15px;
-}
-
-.test
-{
-    padding: 0 300px;
-}
-
-@media only screen and (max-width: 1500px)
-{
-    .test
-    {
-        padding: 0;
-        margin: auto;
-        width: 250px;
-    }
-}
-
-@media only screen and (max-width: 1065px)
-{
-    .products-header
-    {
-        padding: 0 10px;
-    }
-    
-    .test
-    {
-        margin: auto;
-    }
 }
 
 @media only screen and (max-width: 500px)
@@ -715,11 +690,6 @@ main
     {
         font-size: 3em
     }
-    
-    .test
-    {
-        margin: auto;
-    }
 }
 
 .products-header h3
@@ -732,7 +702,7 @@ main
     align-content: center;
     color: white;
     font-weight: 400;
-    background-color: rgba(177,42,42,0.8);
+    background-color: rgb(147,12,12);
     border-radius: 0 0 15px 15px; 
     height: 50px;
     transition: background-color 0.5s, height 0.5s;
@@ -741,15 +711,25 @@ main
 .products-header h3:hover
 {
     cursor: pointer;
-    background-color: rgb(177,42,42);
+    background-color: rgb(167,42,42);
     height: 60px;
 }
 
 .products-header h4
 {
-    padding: 0 10px;
+    padding: 0 100px;
     color: white;
     margin: 30px 0 30px 0;
+}
+
+@media only screen and (max-width: 1065px)
+{
+    .products-header h4
+    {
+        padding: 0 10px;
+        color: white;
+        margin: 30px 0 30px 0;
+    }
 }
 
 .beard img
@@ -797,6 +777,84 @@ main
 {
     color: forestgreen;
 }
+
+/* MODAL */
+/* This class greys out the background to make the modal more apparent*/
+.modal{
+    display: none;
+    position: fixed;
+    z-index: 1; /* Sit on top */
+    padding-top: 10px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* This is the actual service modal */
+.beard-modal{
+    color: black;
+    background-color: white;
+    margin: auto;
+    border: 1px solid black;
+    width: 40%;
+    animation-name: modalAppear;
+    position: relative;
+    animation-duration: 1s;
+}
+
+#modal-footer
+{
+    background-color: rgb(157,22,22);
+    height: 100px;
+}
+
+@media only screen and (max-width: 1200px)
+{
+    .beard-modal
+    {
+        width: 70%;
+    }
+}
+
+@media only screen and (max-width: 750px)
+{
+    .beard-modal
+    {
+        width: 90%;
+    }
+}
+
+/* Animation for modal */
+
+@keyframes modalAppear
+{
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.close-div
+{
+
+}
+
+#close{
+    color: white;
+    float: right;
+    padding-right: 10px;
+    font-size: 3em;
+    font-weight: bold;
+}
+
+#close:hover{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 /********************************************
 * FOOTER STYLING
 *
