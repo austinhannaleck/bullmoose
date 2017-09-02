@@ -32,6 +32,8 @@ html, body
 {
     background-image: url(images/wood_background_sidebar.png);
     background-attachment: fixed;
+    background-size: cover;
+    /* This fills empty space with the background image */
     padding: 0 20px;
     float: left;
     width: 75%;
@@ -176,9 +178,7 @@ h4
 }
 
 @media screen only and (max-width < 1065)
-{
-  \
-    
+{   
     #nav
     {
         display: none;
@@ -460,6 +460,7 @@ main
     background-color: rgb(157,22,22);
         /*rgb(10,62,112);*/
     padding: 10px 0;
+    margin-bottom: 10px;
     color: white;
     text-transform: uppercase;
     font-size: 4em;
@@ -494,7 +495,6 @@ main
     margin: auto;
     display: block;
     border-bottom: 1px solid rgb(150,150,150);
-    margin-bottom: 30px;
 }
 
 #beard-list li
@@ -596,7 +596,6 @@ main
 
 .signature-background, .expedition-background, .hearth-background
 {
-    cursor: pointer;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -606,7 +605,7 @@ main
 .product-description
 {
     color: white;
-    background-color: rgba(200,200,200,0.1);
+    background-color: rgba(200,200,200,0.2);
     text-align: center;
     padding: 10px 100px;
     margin-bottom: 10px;
@@ -652,6 +651,18 @@ main
 {
     text-transform: uppercase;
     font-size: 4em;
+    transition: all .6s;
+}
+
+.product-header-background h3
+{
+    transition: all .6s;
+}
+
+.product-header-background:hover
+{
+    font-size: 110%;
+    text-shadow: 10px 10px rgba(0,0,0,0.5);
 }
 
 
@@ -662,16 +673,21 @@ main
     text-align: center;
 }
 
+.test
+{
+    
+}
 .products-header
 {
-    background-color: rgba(255,255,255, 0.);
+    background-image: url(images/teddy.jpg);
+    background-position: center;
     color: rgb(50,50,50);
     font-weight: 400;
+    padding-bottom: 30px;
 }
 
 .products-header h1
 {
-    background-color: rgb(157,22,22);;
     padding: 10px;
     color: white;
     text-transform: uppercase;
@@ -683,12 +699,7 @@ main
 {
     .products-header
     {
-        padding: 0;
-    }
-    
-    .products-header h1
-    {
-        font-size: 3em
+        padding: 0 0 30px 0;
     }
 }
 
@@ -719,7 +730,7 @@ main
 {
     padding: 0 100px;
     color: white;
-    margin: 30px 0 30px 0;
+    margin-bottom: 20px;
 }
 
 @media only screen and (max-width: 1065px)
@@ -740,10 +751,7 @@ main
 }
 
 
-.beard span
-{
-    color: darkred;
-}
+
 
 .item-backside
 {
@@ -780,6 +788,18 @@ main
 
 /* MODAL */
 /* This class greys out the background to make the modal more apparent*/
+#modalBtn1
+{
+    cursor: pointer;
+    transition: all .6s;
+}
+
+#modalBtn1:hover
+{
+    font-size: 120%;
+    color: rgba(207,72,72,1);
+}
+
 .modal{
     display: none;
     position: fixed;
@@ -799,7 +819,6 @@ main
     color: black;
     background-color: white;
     margin: auto;
-    border: 1px solid black;
     width: 40%;
     animation-name: modalAppear;
     position: relative;
