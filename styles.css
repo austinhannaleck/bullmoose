@@ -138,6 +138,8 @@ h4
     width: 250px;
     max-width: 100%;
 }
+
+ 
 .nav-container
 { 
     padding: 20px 0;
@@ -161,11 +163,19 @@ h4
 
 #alternate-navbar ul
 {
+    height: 55px;
     background-color: rgba(100,50,50,0.1);
 }
 
+#alternate-navbar .cart
+{
+    position: relative;
+    top: 5px;
+
+}
 #alternate-navbar li
 {
+    position: relative;
     font-size: 2em;
     display: inline;
     padding: 0 20px;
@@ -173,7 +183,6 @@ h4
 
 #alternate-navbar li:hover
 {
-    font-size: 2em;
     background-color: rgba(207,72,72,0.5);
 }
 
@@ -232,12 +241,17 @@ h4
 {
     width: 50px;
     max-width: 100%;
-    margin: 0 10px;
+    margin: 0 15px;
 }
 
 .social-media img:hover
 {
     cursor: pointer;
+}
+
+.cart
+{
+    display: inline;
 }
 
 #insta:hover
@@ -442,7 +456,7 @@ main
 
 .beard
 {
- 
+  
 }
 
 .beard-intro
@@ -637,6 +651,7 @@ main
 .product h4
 {
     color: rgb(200,200,200);
+    margin-bottom: 20px;
 }
 
 /* Overall style for all product headers */
@@ -647,10 +662,11 @@ main
     color: white;
 }
 
-.product-header-background h1
+.product-header-background h1, product-header-background h3
 {
     text-transform: uppercase;
     font-size: 4em;
+    text-shadow: 6px 6px rgba(0,0,0,0.5);
     transition: all .6s;
 }
 
@@ -662,7 +678,7 @@ main
 .product-header-background:hover
 {
     font-size: 110%;
-    text-shadow: 10px 10px rgba(0,0,0,0.5);
+    text-shadow: 6px 6px rgba(0,0,0,0.5);
 }
 
 
@@ -871,6 +887,29 @@ main
 #close:hover{
     color: black;
     text-decoration: none;
+    cursor: pointer;
+}
+
+/********************************************
+* PAYMENT
+*
+********************************************/
+
+.cart-button
+{
+    padding: 5px 30px;
+    font-size: 1.5em;
+    text-align: center;
+    background-color: rgb(150,15,15);
+    border: 2px solid white;
+    color: white;
+    transition: all .5s;
+}
+
+.cart-button:hover
+{
+    background-color: white;
+    color: black;
     cursor: pointer;
 }
 
