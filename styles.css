@@ -914,7 +914,7 @@ main
 
 #cybercart-modal
 {
-    display: block; /* WARNING: Changed this to NONE for deployment */
+    display: none; /* WARNING: Changed this to NONE for deployment */
     position: fixed;
     z-index: 1; /* Sit on top */
     padding-top: 10px; /* Location of the box */
@@ -935,7 +935,7 @@ main
     margin: auto;
     font-weight: 200;
     background-color: white;
-    overflow: auto;
+    overflow: hidden;
 }
 
 @media only screen and (max-width: 700px)
@@ -948,17 +948,38 @@ main
 
 .shopping-cart h1
 {
-    border-bottom: 2px solid rgb(200,200,200);
+    border-bottom: 1px solid rgb(200,200,200);
 }
 
-.shopping-cart h1, h3
+.shopping-cart h1, .shopping-cart h3
 {
-    color: rgb(50,50,50);   
+    color: rgb(30,30,30);   
 }
 
-.items
+#items
 {
     padding: 10px;
+}
+
+#items input[type="number"]
+{
+    padding: 5px;
+}
+
+#items input[type="number"]:hover
+{
+    border: 1px solid lightblue;
+}
+
+#items .delete
+{
+    font-size: 3em;
+}
+
+#items .delete:hover
+{
+    color: rgb(100,100,100);
+    cursor: pointer;
 }
 
 .total-div 
@@ -969,6 +990,11 @@ main
 .total-div h3
 {
     margin-bottom: 10px;
+}
+
+#paypal-button
+{
+    float: right;
 }
 
 #cart-close{
