@@ -963,7 +963,9 @@ main
 
 #items input[type="number"]
 {
-    padding: 5px;
+    font-size: 1.2em;
+    text-align: center;
+    padding: 10px;
 }
 
 #items input[type="number"]:hover
@@ -973,13 +975,30 @@ main
 
 #items .delete
 {
-    font-size: 3em;
+    font-size: 4em;
+    transition: all .2s;
 }
 
 #items .delete:hover
 {
     color: rgb(100,100,100);
     cursor: pointer;
+}
+
+.cart-item-block
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: rgb(245,245,245);
+}
+
+/* Styling for text when cart is empty */
+.empty-cart
+{
+    text-align: center;
+    padding: 50px 0;
 }
 
 .total-div 

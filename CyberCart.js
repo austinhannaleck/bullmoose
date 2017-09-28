@@ -93,13 +93,18 @@ $(document).ready(function()
                 {
                     
                     // Add new item to cart. Use data-item to identify the name of object with cart contents, class = item-quantity to keep track of input fields,
-                    $('#items').append("<div data-item=" + property + " class='row'> <div class='col-6'><h3>" + 
+                    $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-6'><h3>" + 
                                         Cart.contents[property][ITEM_INDEX] + "</h3></div>" +
                                         "<div class='col-4'><input class='item-quantity' min='0' type='number' value=" + Cart.contents[property][COUNT_INDEX] + "></div><div class='col-2'><span class='delete'>" + "&times;" + "</span></div></div>");
                 
                     Cart.subtotal = Cart.subtotal + (Cart.contents[property][PRICE_INDEX] * Cart.contents[property][COUNT_INDEX]);
                 }
             }
+        }
+        
+        if($('#items').is(':empty'))
+        {
+            $('#items').append("<div><h3 class='empty-cart'>Your cart is empty!</h3></div>");
         }
         
         $('#shipping').text("$" + parseFloat(Cart.shipping).toFixed(2));
@@ -136,5 +141,44 @@ $(document).ready(function()
     }
     
     
+                            paypal.Button.render({
+
+            env: 'sandbox', // sandbox | production
+
+            // PayPal Client IDs - replace with your own
+            // Create a PayPal app: https://developer.paypal.com/developer/applications/create
+            client: {
+                sandbox:    'AdXHrDwft-8bmc_EMSgpGQfYWh9ylcj6ywBLoJIjfxy4vR5pKDY4t_hJV0VFsf2HWRwPe9DQ_5TTRyY4',
+                production: 'ATupmcp0yd9U-9gu2VELwXvS_v87BUO8OP3ewzzer0eBfxBxJMTXwQ82eFyYzsz7ZSs0MNzo0U45mVl1'
+            },
+
+            // Show the buyer a 'Pay Now' button in the checkout flow
+            commit: true,
+
+            // payment() is called when the button is clicked
+            payment: function(data, actions) {
+
+                // Make a call to the REST api to create the payment
+                return actions.payment.create({
+                    payment: {
+                        transactions: [
+                            {
+                                amount: { total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), currency: 'USD' }
+                            }
+                        ]
+                    }
+                });
+            },
+
+            // onAuthorize() is called when the buyer approves the payment
+            onAuthorize: function(data, actions) {
+
+                // Make a call to the REST api to execute the payment
+                return actions.payment.execute().then(function() {
+                    window.alert('Payment Complete!');
+                });
+            }
+
+        }, '#paypal-button');
     
 });
