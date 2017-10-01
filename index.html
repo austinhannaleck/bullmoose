@@ -127,31 +127,28 @@
                 <div class="shopping-cart row">
                     <span id="cart-close">&times;</span>
                     <h1>Shopping Cart</h1>
-                    <div class="items">
+                    <div id="items" class="row">
                         
                     </div>
                     <div class="col-12 total-div">
+                        
+                        
+                        <!-- LEAVE OUT DISCOUNTS FOR NOW
+                        <form id="discount-div">
+                            <h3>Discount Code</h3>
+                            <div class="flex-div">
+                                <input id="discount-code" type="text">
+                            </div>
+                            
+                            <div class="flex-div">
+                                <button id="apply-discount">Apply Discount</button>
+                            </div>
+                        </form>
+                        -->
                         <h3>Shipping: <span id="shipping"></span></h3>
                         <h3>Total:    <span id="total"></span></h3>
                         <div id="paypal-button"></div>
                     </div>
-        
-                    <script>
-                        paypal.Button.render({
-                            
-                            env: 'production', // Or 'sandbox',
-                            
-                            commit: true, // Show a 'Pay Now' button
-                            
-                            payment: function() {
-                                // Set up the payment here
-                            },
-                            
-                            onAuthorize: function(data, actions) {
-                                // Execute the payment here
-                            }
-                        }, '#paypal-button');
-                    </script>
                 </div>
             </section>
         </main>

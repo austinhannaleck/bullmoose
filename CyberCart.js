@@ -5,8 +5,21 @@ const COUNT_INDEX = 1;
 // Index for item description in Cart contents object.
 const ITEM_INDEX  = 2;
 
+// Functions for getting/setting objects in local storage
+Storage.prototype.setObject = function(key, value)
+{
+    this.setItem(key, JSON.stringify(value));
+}
+
+Storage.prototype.getObject = function(key)
+{
+    var value = this.getItem(key);
+    return value && JSON.parse(value);
+}
+
 $(document).ready(function()
 {
+    
     
     var CartButtons = document.getElementsByClassName('cart-button');
 
@@ -47,10 +60,26 @@ $(document).ready(function()
             hearthBalm: [12.00, 0, "Beard Balm - Hearth"],
             hearthOil: [12.00, 0, "Beard Oil - Hearth"],
             hearthWash: [12.00, 0, "Beard Wash - Hearth"]
-        }
+        },
+        
+        discounts:
+        {
+            tryMe: 5   
+        },
+        
+        discountApplied: false
     };
     
-    
+    if(typeof(Storage) !== "undefined")
+    {
+        if(localStorage.getObject("cart") != null)
+        {
+            Cart = localStorage.getObject("cart");
+            alert("Cart updated");
+            alert(Cart);
+        }
+        
+    }
     
     
     
@@ -61,6 +90,21 @@ $(document).ready(function()
         
         UpdateCart();
     });  
+    
+    /* Apply discount code */
+    $('#apply-discount').click(function(event)
+    {
+        event.preventDefault();
+        
+        var text = $('#discount-code').val();
+        var result = Cart.discounts[text]
+        
+        if(result != undefined)
+        {
+            alert(result);
+        }
+        
+    })
     
     // Hide CyberCart modal when user clicks close
     $('#cart-close').click(function()
@@ -138,10 +182,12 @@ $(document).ready(function()
             
             UpdateCart();
         });
+        
+        localStorage.setObject("cart", Cart);
     }
     
     
-                            paypal.Button.render({
+            paypal.Button.render({
 
             env: 'sandbox', // sandbox | production
 
