@@ -89,7 +89,7 @@ $(document).ready(function()
     
     
     // Show CyberCart modal when user clicks on cart icon
-    $('#cart').click(function()
+    $('.cart').click(function()
     {
         $('#cybercart-modal').css('display', 'block');
         
@@ -213,7 +213,7 @@ $(document).ready(function()
     
             paypal.Button.render({
 
-            env: 'sandbox', // sandbox | production
+            env: 'production', // sandbox | production
             
             style: {
                 shape: 'rect'
