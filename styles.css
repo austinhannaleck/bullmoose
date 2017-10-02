@@ -1048,6 +1048,11 @@ main
     cursor: pointer;
 }
 
+#totals
+{
+    color: rgb(80,80,80);
+    float: right;
+}
 .total-div h3
 {
     margin-bottom: 10px;
@@ -1055,7 +1060,7 @@ main
 
 #paypal-button
 {
-    float: right;
+    margin-top: 10px;
 }
 
 #cart-close{

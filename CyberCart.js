@@ -19,7 +19,7 @@ Storage.prototype.getObject = function(key)
 
 $(document).ready(function()
 {
-    
+    var ItemsPaypal = "";
     
     var CartButtons = document.getElementsByClassName('cart-button');
 
@@ -39,14 +39,17 @@ $(document).ready(function()
         
         Cart["contents"][item][COUNT_INDEX]++;
         
-        alert(Cart["contents"][item][COUNT_INDEX]);
+        alert( Cart["contents"][item][ITEM_INDEX] + " added to cart!");
+        
+        // DEBUG
+        //alert(Cart["contents"][item][COUNT_INDEX]);
         
     });
     
     var Cart = 
     {
         subtotal: 0,
-        shipping: 0,
+        shipping: 5,
         
         /* List of items with price and quantity */
         contents:
@@ -75,8 +78,10 @@ $(document).ready(function()
         if(localStorage.getObject("cart") != null)
         {
             Cart = localStorage.getObject("cart");
-            alert("Cart updated");
-            alert(Cart);
+            
+            // DEBUG
+            //alert("Cart updated");
+            //alert(Cart);
         }
         
     }
@@ -124,39 +129,58 @@ $(document).ready(function()
         // Clear the cart
         $('#items').html(""); 
         Cart.subtotal = 0;
+        Cart.shipping = 0;
+        
+        ItemsPaypal = "[";
         
         // Iterate through number of possible items in cart.
         // In the event that an item has a quantity greater than 0,
         // add item to the cart and update price.
-        
         for(var property in Cart.contents)
         {
             if(Cart.contents.hasOwnProperty(property))
             {
                 if(Cart.contents[property][COUNT_INDEX] > 0)
                 {
+                    Cart.shipping = 5;
+                    
+                    var Item     = Cart.contents[property][ITEM_INDEX];
+                    var Quantity = Cart.contents[property][COUNT_INDEX];
+                    // price
                     
                     // Add new item to cart. Use data-item to identify the name of object with cart contents, class = item-quantity to keep track of input fields,
                     $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-6'><h3>" + 
                                         Cart.contents[property][ITEM_INDEX] + "</h3></div>" +
                                         "<div class='col-4'><input class='item-quantity' min='0' type='number' value=" + Cart.contents[property][COUNT_INDEX] + "></div><div class='col-2'><span class='delete'>" + "&times;" + "</span></div></div>");
+                    
+                    // Add item to items array for paypal API
+                    ItemsPaypal = ItemsPaypal.concat("{name: '" + Cart.contents[property][ITEM_INDEX] + "', quantity: '" + Cart.contents[property][COUNT_INDEX] + "'},");
                 
                     Cart.subtotal = Cart.subtotal + (Cart.contents[property][PRICE_INDEX] * Cart.contents[property][COUNT_INDEX]);
                 }
             }
         }
         
+        // Cut off last character of string
+        ItemsPaypal = ItemsPaypal.substr(0, ItemsPaypal.length-1);
+        ItemsPaypal = ItemsPaypal.concat("]");
+        
+        // DEBUG
+        //alert(ItemsPaypal);
+        
+        // Display a message if the cart is empty.
         if($('#items').is(':empty'))
         {
             $('#items').append("<div><h3 class='empty-cart'>Your cart is empty!</h3></div>");
         }
         
+        // Display shipping and force to the 2nd decimal place.
         $('#shipping').text("$" + parseFloat(Cart.shipping).toFixed(2));
         
         // Add subtotal to total and force to the 2nd decimal place.
         $('#total').text("$" + parseFloat( Cart.subtotal + Cart.shipping).toFixed(2));
         
-        // Add event handlers for quantity buttons in cart
+        // Add event handlers for quantity buttons in cart.
         $(".item-quantity").change(function()
         {
             var count = $(this).val();
@@ -190,10 +214,15 @@ $(document).ready(function()
             paypal.Button.render({
 
             env: 'sandbox', // sandbox | production
+            
+            style: {
+                shape: 'rect'
+            },
 
             // PayPal Client IDs - replace with your own
             // Create a PayPal app: https://developer.paypal.com/developer/applications/create
-            client: {
+            client: 
+            {
                 sandbox:    'AdXHrDwft-8bmc_EMSgpGQfYWh9ylcj6ywBLoJIjfxy4vR5pKDY4t_hJV0VFsf2HWRwPe9DQ_5TTRyY4',
                 production: 'ATupmcp0yd9U-9gu2VELwXvS_v87BUO8OP3ewzzer0eBfxBxJMTXwQ82eFyYzsz7ZSs0MNzo0U45mVl1'
             },
@@ -209,7 +238,12 @@ $(document).ready(function()
                     payment: {
                         transactions: [
                             {
-                                amount: { total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), currency: 'USD' }
+                                amount: { total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), 
+                                         currency: 'USD'
+                                        },
+                                description: 'Bullmoose Man Made Products Transaction',
+                                note_to_payee: ItemsPaypal
+                                //item_list: {items: ItemsPaypal}
                             }
                         ]
                     }
