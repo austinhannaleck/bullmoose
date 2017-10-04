@@ -1048,10 +1048,14 @@ main
     cursor: pointer;
 }
 
+#discount-value
+{
+    display: none;
+}
+
 #totals
 {
     color: rgb(80,80,80);
-    float: right;
 }
 .total-div h3
 {

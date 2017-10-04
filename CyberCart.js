@@ -21,17 +21,9 @@ $(document).ready(function()
 {
     var ItemsPaypal = "";
     
+    // All buttons that can add items to cart.
     var CartButtons = document.getElementsByClassName('cart-button');
 
-    //alert(CartButtons[0].getAttribute("data-productid"));
-    
-    /*
-    for(var i = 0; i < CartButtons.length; i++)
-    {
-        alert(CartButtons[i].getAttribute("data-productid"));
-    }
-    */
-    
     $('.cart-button').click(function()
     {
         var id   = $(this).attr("data-productid");
@@ -50,6 +42,7 @@ $(document).ready(function()
     {
         subtotal: 0,
         shipping: 5,
+        discount: 0,
         
         /* List of items with price and quantity */
         contents:
@@ -67,21 +60,20 @@ $(document).ready(function()
         
         discounts:
         {
-            tryMe: 5   
+            // Add discount with coupon name and percentage off below
+            tryMe: 10
         },
         
         discountApplied: false
     };
     
+    // Check for local storage support
     if(typeof(Storage) !== "undefined")
     {
+        // Get cart out of local storage if it exists.
         if(localStorage.getObject("cart") != null)
         {
             Cart = localStorage.getObject("cart");
-            
-            // DEBUG
-            //alert("Cart updated");
-            //alert(Cart);
         }
         
     }
@@ -96,17 +88,27 @@ $(document).ready(function()
         UpdateCart();
     });  
     
-    /* Apply discount code */
+    // Apply coupon code
     $('#apply-discount').click(function(event)
     {
         event.preventDefault();
         
         var text = $('#discount-code').val();
-        var result = Cart.discounts[text]
+        var result = Cart.discounts[text];
+        
+        
+        alert(result);
         
         if(result != undefined)
         {
-            alert(result);
+            alert("Coupon applied!");
+            Cart.discount = parseFloat(result) / 100;
+            alert(Cart.discount);
+            Cart.discountApplied = true;
+        }
+        else
+        {
+            
         }
         
     })
@@ -118,9 +120,6 @@ $(document).ready(function()
     });
     
     // Hide CyberCart modal when user clicks on outside modal
-    {
-        
-    }
     
         
     
@@ -142,11 +141,11 @@ $(document).ready(function()
             {
                 if(Cart.contents[property][COUNT_INDEX] > 0)
                 {
+                    // Only set shipping value if there are items in the cart. Shipping rate is a flat $5.00.
                     Cart.shipping = 5;
                     
                     var Item     = Cart.contents[property][ITEM_INDEX];
                     var Quantity = Cart.contents[property][COUNT_INDEX];
-                    // price
                     
                     // Add new item to cart. Use data-item to identify the name of object with cart contents, class = item-quantity to keep track of input fields,
                     $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-6'><h3>" + 
@@ -159,6 +158,15 @@ $(document).ready(function()
                     Cart.subtotal = Cart.subtotal + (Cart.contents[property][PRICE_INDEX] * Cart.contents[property][COUNT_INDEX]);
                 }
             }
+        }
+        
+        var discount = Cart.subtotal * Cart.discount;
+        
+        // Calculate discount
+        if(Cart.subtotal > 0 && true == Cart.discountApplied)
+        {
+            $('#discount-value').css('display', 'block');
+            $('#discount-value').text(discount);
         }
         
         // Cut off last character of string
