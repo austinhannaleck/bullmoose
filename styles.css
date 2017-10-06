@@ -992,6 +992,14 @@ main
     align-items: center;
     flex-wrap: wrap;
     background-color: rgb(245,245,245);
+    margin-bottom: 5px;
+}
+
+/* Center content of all children of item block except for item name.
+   This keeps item names aligned. */
+.cart-item-block div:not(:first-child)
+{
+    text-align: center;
 }
 
 /* Styling for text when cart is empty */
@@ -1008,30 +1016,26 @@ main
 
 #discount-div
 {
+    text-align: center; 
+    padding: 5px 0 15px 0;
+}
+
+#discount-div form
+{
     display: flex;
-    flex-direction: row;
-    align-items: center;
+    flex-direction: column;
 }
 
-#discount-div *
+#discount-div form div, #discount-div form h3
 {
-   margin: 0 5px;
-    /* align items in center of row */
+    margin: 6px;
 }
 
-#discount-div .flex-div
-{
-    display: inline;
-}
-
-#discount-div h3
-{
-    display: inline;
-}
 
 #discount-div input
 {
     padding: 5px;
+    text-align: center;
 }
 
 #apply-discount
@@ -1055,11 +1059,25 @@ main
 
 #totals
 {
+    padding: 10px;
     color: rgb(80,80,80);
+    background-color: rgb(230,230,230);
 }
-.total-div h3
+
+.total-div span
+{
+    color: inherit;
+}
+#totals h3
 {
     margin-bottom: 10px;
+}
+
+
+.total-div hr
+{
+    color: rgb(50, 50, 50);
+    margin-bottom: 5px;
 }
 
 #paypal-button

@@ -61,7 +61,7 @@ $(document).ready(function()
         discounts:
         {
             // Add discount with coupon name and percentage off below
-            tryMe: 10
+            test: 10
         },
         
         discountApplied: false
@@ -97,19 +97,27 @@ $(document).ready(function()
         var result = Cart.discounts[text];
         
         
-        alert(result);
-        
-        if(result != undefined)
+        //alert(result);
+        if(false == Cart.discountApplied)
         {
-            alert("Coupon applied!");
-            Cart.discount = parseFloat(result) / 100;
-            alert(Cart.discount);
-            Cart.discountApplied = true;
+            if(result != undefined)
+            {
+                alert("Coupon applied!");
+                Cart.discount = parseFloat(result) / 100;
+                Cart.discountApplied = true;
+                
+                UpdateCart();
+            }
+            else
+            {
+                alert("Invalid coupon code.");
+            }
         }
         else
         {
-            
+            alert("Coupon already applied.");
         }
+        
         
     })
     
@@ -145,12 +153,15 @@ $(document).ready(function()
                     Cart.shipping = 5;
                     
                     var Item     = Cart.contents[property][ITEM_INDEX];
-                    var Quantity = Cart.contents[property][COUNT_INDEX];
+                    var Quantity = parseFloat(Cart.contents[property][COUNT_INDEX]);
+                    var Price = Cart.contents[property][PRICE_INDEX];
                     
                     // Add new item to cart. Use data-item to identify the name of object with cart contents, class = item-quantity to keep track of input fields,
-                    $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-6'><h3>" + 
-                                        Cart.contents[property][ITEM_INDEX] + "</h3></div>" +
-                                        "<div class='col-4'><input class='item-quantity' min='0' type='number' value=" + Cart.contents[property][COUNT_INDEX] + "></div><div class='col-2'><span class='delete'>" + "&times;" + "</span></div></div>");
+                    $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-4'><h3>" + 
+                                        Item + "</h3></div>" +
+                                    
+                                        "<div class='col-4'><input class='item-quantity' min='0' type='number' value=" + Quantity + "></div>" + 
+                                       "<div class='col-2'><h3>$" + parseFloat(Price * Quantity).toFixed(2) + "</h3></div><div class='col-2'><span class='delete'>" + "&times;" + "</span></div></div>");
                     
                     // Add item to items array for paypal API
                     ItemsPaypal = ItemsPaypal.concat("{name: '" + Cart.contents[property][ITEM_INDEX] + "', quantity: '" + Cart.contents[property][COUNT_INDEX] + "'},");
@@ -160,13 +171,20 @@ $(document).ready(function()
             }
         }
         
-        var discount = Cart.subtotal * Cart.discount;
         
-        // Calculate discount
+        var Discount = parseFloat(Cart.subtotal * Cart.discount).toFixed(2);
+        // Update discount value, since new items may have been added to cart
+        // since discount was initially applied. If subtotal is zero,
+        // hide discount element.
         if(Cart.subtotal > 0 && true == Cart.discountApplied)
         {
             $('#discount-value').css('display', 'block');
-            $('#discount-value').text(discount);
+            $('#discount-value').text("Discount: -$" + Discount);
+        }
+        else
+        {
+            $('#discount-value').css('display', 'none');
+            Discount = 0.0;
         }
         
         // Cut off last character of string
@@ -180,13 +198,19 @@ $(document).ready(function()
         if($('#items').is(':empty'))
         {
             $('#items').append("<div><h3 class='empty-cart'>Your cart is empty!</h3></div>");
+            
+            // Reset coupon code states.
+            Cart.discount = 0;
+            Cart.discountApplied = false;
         }
         
         // Display shipping and force to the 2nd decimal place.
         $('#shipping').text("$" + parseFloat(Cart.shipping).toFixed(2));
         
+        // Display subtotal.
+        $('#subtotal').text("$" + parseFloat(Cart.subtotal).toFixed(2));
         // Add subtotal to total and force to the 2nd decimal place.
-        $('#total').text("$" + parseFloat( Cart.subtotal + Cart.shipping).toFixed(2));
+        $('#total').text("$" + parseFloat((Cart.subtotal + Cart.shipping) - Discount).toFixed(2));
         
         // Add event handlers for quantity buttons in cart.
         $(".item-quantity").change(function()

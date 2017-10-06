@@ -127,22 +127,24 @@
                         
                     </div>
                     <div class="col-12 total-div">
+                        <div id="discount-div">
+                            <form>
+                                <h3>Discount Code</h3>
+                                <div class="flex-div">
+                                    <input id="discount-code" type="text">
+                                </div>
+                                <div class="flex-div">
+                                    <button id="apply-discount">Apply Coupon</button>
+                                </div>
+                            </form>
+                        </div>
                         
-                        <!-- DISCOUNT FIELD TO BE ADDED
-                        <form id="discount-div">
-                            <h3>Discount Code</h3>
-                            <div class="flex-div">
-                                <input id="discount-code" type="text">
-                            </div>
-                            
-                            <div class="flex-div">
-                                <button id="apply-discount">Apply Discount</button>
-                            </div>
-                        </form>
-                        -->
                         
                         <div id="totals">
+                            <h3>Subtotal: <span id="subtotal"></span></h3>
+                            <h3 id="discount-value"></h3>
                             <h3>Shipping: <span id="shipping"></span></h3>
+                            <hr>
                             <h3>Total:    <span id="total"></span></h3>
                             <div id="paypal-button"></div>
                         </div>
