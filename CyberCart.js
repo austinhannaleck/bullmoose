@@ -61,7 +61,7 @@ $(document).ready(function()
         discounts:
         {
             // Add discount with coupon name and percentage off below
-            test: 10
+            buyme: 10
         },
         
         discountApplied: false
@@ -71,9 +71,9 @@ $(document).ready(function()
     if(typeof(Storage) !== "undefined")
     {
         // Get cart out of local storage if it exists.
-        if(localStorage.getObject("cart") != null)
+        if(localStorage.getObject("contents") != null)
         {
-            Cart = localStorage.getObject("cart");
+            Cart.contents = localStorage.getObject("contents");
         }
         
     }
@@ -117,7 +117,6 @@ $(document).ready(function()
         {
             alert("Coupon already applied.");
         }
-        
         
     })
     
@@ -239,7 +238,7 @@ $(document).ready(function()
             UpdateCart();
         });
         
-        localStorage.setObject("cart", Cart);
+        localStorage.setObject("contents", Cart.contents);
     }
     
     
