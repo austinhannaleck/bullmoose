@@ -187,7 +187,7 @@ $(document).ready(function()
         }
         
         // Cut off last character of string
-        ItemsPaypal = ItemsPaypal.substr(0, ItemsPaypal.length-1);
+        ItemsPaypal = ItemsPaypal.substr(0, ItemsPaypal.length-1); // Remove "," character.
         ItemsPaypal = ItemsPaypal.concat("]");
         
         // DEBUG
@@ -269,12 +269,27 @@ $(document).ready(function()
                     payment: {
                         transactions: [
                             {
-                                amount: { total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), 
-                                         currency: 'USD'
-                                        },
-                                description: 'Bullmoose Man Made Products Transaction',
-                                note_to_payee: ItemsPaypal
-                                //item_list: {items: ItemsPaypal}
+                                amount: 
+                                { 
+                                    total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), 
+                                    currency: 'USD'
+                                },
+                                description: 'Bullmoose Man Made Products Transaction'
+                                /*
+                                item_list: 
+                                {
+                                    items:
+                                    [
+                                        {
+                                            name: "Hat",
+                                            sku: "0023",
+                                            currency: "USD",
+                                            price: "2.00",
+                                            quantity: "2"
+                                        }
+                                    ]
+                                }
+                                */
                             }
                         ]
                     }
