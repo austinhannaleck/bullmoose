@@ -153,7 +153,7 @@ $(document).ready(function()
                     
                     var Item     = Cart.contents[property][ITEM_INDEX];
                     var Quantity = parseFloat(Cart.contents[property][COUNT_INDEX]);
-                    var Price = Cart.contents[property][PRICE_INDEX];
+                    var Price = Cart.contents[property][PRICE_INDEX].toFixed(2);
                     
                     // Add new item to cart. Use data-item to identify the name of object with cart contents, class = item-quantity to keep track of input fields,
                     $('#items').append("<div data-item=" + property + " class='row cart-item-block'> <div class='col-4'><h3>" + 
@@ -163,7 +163,7 @@ $(document).ready(function()
                                        "<div class='col-2'><h3>$" + parseFloat(Price * Quantity).toFixed(2) + "</h3></div><div class='col-2'><span class='delete'>" + "&times;" + "</span></div></div>");
                     
                     // Add item to items array for paypal API
-                    ItemsPaypal = ItemsPaypal.concat("{name: '" + Cart.contents[property][ITEM_INDEX] + "', quantity: '" + Cart.contents[property][COUNT_INDEX] + "'},");
+                    ItemsPaypal = ItemsPaypal.concat('{"name": "' + Item + '", "quantity": ' + Quantity + ', "price": ' + Price + ', "currency": "USD"},');
                 
                     Cart.subtotal = Cart.subtotal + (Cart.contents[property][PRICE_INDEX] * Cart.contents[property][COUNT_INDEX]);
                 }
@@ -192,6 +192,7 @@ $(document).ready(function()
         
         // DEBUG
         //alert(ItemsPaypal);
+        //alert(JSON.parse(ItemsPaypal));
         
         // Display a message if the cart is empty.
         if($('#items').is(':empty'))
@@ -264,6 +265,8 @@ $(document).ready(function()
             // payment() is called when the button is clicked
             payment: function(data, actions) {
 
+                //ItemsPaypal = '[{"name": "Hat", "price": 12.00, "quantity": 1, "currency": "USD"}, {"name": "Hat", "price": 12.00, "quantity": 1, "currency": "USD"}]';
+                
                 // Make a call to the REST api to create the payment
                 return actions.payment.create({
                     payment: {
@@ -271,25 +274,20 @@ $(document).ready(function()
                             {
                                 amount: 
                                 { 
-                                    total: parseFloat( Cart.subtotal + Cart.shipping).toFixed(2), 
-                                    currency: 'USD'
+                                    total: (parseFloat(Cart.subtotal) + parseFloat(Cart.shipping)).toFixed(2), 
+                                    currency: 'USD',
+                                    details:
+                                    {
+                                        subtotal: parseFloat(Cart.subtotal).toFixed(2),
+                                        shipping: parseFloat(Cart.shipping).toFixed(2)
+                                    }
                                 },
-                                description: 'Bullmoose Man Made Products Transaction'
-                                /*
                                 item_list: 
                                 {
-                                    items:
-                                    [
-                                        {
-                                            name: "Hat",
-                                            sku: "0023",
-                                            currency: "USD",
-                                            price: "2.00",
-                                            quantity: "2"
-                                        }
-                                    ]
+                                    items: 
+                                        JSON.parse(ItemsPaypal)
+                                        
                                 }
-                                */
                             }
                         ]
                     }
