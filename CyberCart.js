@@ -26,7 +26,6 @@ $(document).ready(function()
 
     $('.cart-button').click(function()
     {
-        var id   = $(this).attr("data-productid");
         var item = $(this).attr("data-item");
         
         Cart["contents"][item][COUNT_INDEX]++;
@@ -47,15 +46,18 @@ $(document).ready(function()
         /* List of items with price and quantity */
         contents:
         {
-            sigBalm: [12.00, 0, "Beard Balm - Signature"],
-            sigOil: [12.00, 0, "Beard Oil - Signature"],
-            sigWash: [12.00, 0, "Beard Wash - Signature"],
-            expedBalm: [12.00, 0, "Beard Balm - Expedition"],
-            expedOil: [12.00, 0, "Beard Oil - Expedition"],
-            expedButter: [12.00, 0, "Shave Butter - Expedition"],
-            hearthBalm: [12.00, 0, "Beard Balm - Hearth"],
-            hearthOil: [12.00, 0, "Beard Oil - Hearth"],
-            hearthWash: [12.00, 0, "Beard Wash - Hearth"]
+            sigBalm: [10.00, 0, "Beard Balm - Signature"],
+            sigOil: [10.00, 0, "Beard Oil - Signature"],
+            sigWash: [10.00, 0, "Beard Wash - Signature"],
+            expedBalm: [10.00, 0, "Beard Balm - Expedition"],
+            expedOil: [10.00, 0, "Beard Oil - Expedition"],
+            expedButter: [10.00, 0, "Shave Butter - Expedition"],
+            hearthBalm: [10.00, 0, "Beard Balm - Hearth"],
+            hearthOil: [10.00, 0, "Beard Oil - Hearth"],
+            hearthWash: [10.00, 0, "Beard Wash - Hearth"],
+            twilightBalm: [10.00, 0, "Beard Balm - Twilight"],
+            twilightOil: [10.00, 0, "Beard Oil - Twilight"],
+            twilightWash: [10.00, 0, "Beard Wash - Twilight"]
         },
         
         discounts:
@@ -67,6 +69,8 @@ $(document).ready(function()
         discountApplied: false
     };
     
+    /* FIX THIS AT LATER DATE, THIS INTERFERES WITH PRICE CHANGES
+    
     // Check for local storage support
     if(typeof(Storage) !== "undefined")
     {
@@ -77,6 +81,8 @@ $(document).ready(function()
         }
         
     }
+    
+    */
     
     
     

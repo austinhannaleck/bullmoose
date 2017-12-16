@@ -290,7 +290,7 @@ main
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: url(images/fern.jpg);
+    background-image: url(images/twilight_background_full.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -456,7 +456,7 @@ main
 
 .beard
 {
-  
+  margin-top: 10px;
 }
 
 .beard-intro
@@ -588,7 +588,7 @@ main
     background-image: url(images/signature-background.jpg);
 }
 
-.signature-items, #expedition-items, #hearth-items
+.signature-items, #expedition-items, #hearth-items, #twilight-items
 {
     /*background-color: rgba(50,50,50,0.1);*/
     color: white;
@@ -602,13 +602,14 @@ main
 .hearth-background
 {
     background-image: url(images/hearth-background.jpg);
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: center;
 }
 
-.signature-background, .expedition-background, .hearth-background
+.twilight-background
+{
+    background-image: url(images/twilight_background.jpg);
+}
+
+.signature-background, .expedition-background, .hearth-background, .twilight-background
 {
     display: flex;
     align-items: center;
