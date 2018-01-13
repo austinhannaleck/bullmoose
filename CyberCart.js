@@ -57,7 +57,9 @@ $(document).ready(function()
             hearthWash: [10.00, 0, "Beard Wash - Hearth"],
             twilightBalm: [10.00, 0, "Beard Balm - Twilight"],
             twilightOil: [10.00, 0, "Beard Oil - Twilight"],
-            twilightWash: [10.00, 0, "Beard Wash - Twilight"]
+            twilightWash: [10.00, 0, "Beard Wash - Twilight"],
+            excursionSalve: [10.00, 0, "Hand Salve - Excursion"],
+            excursionButter: [10.00, 0, "Shave Butter - Excursion"]
         },
         
         discounts:

@@ -588,7 +588,7 @@ main
     background-image: url(images/signature-background.jpg);
 }
 
-.signature-items, #expedition-items, #hearth-items, #twilight-items
+.signature-items, #expedition-items, #hearth-items, #twilight-items, #excursion-items
 {
     /*background-color: rgba(50,50,50,0.1);*/
     color: white;
@@ -609,7 +609,12 @@ main
     background-image: url(images/twilight_background.jpg);
 }
 
-.signature-background, .expedition-background, .hearth-background, .twilight-background
+.excursion-background
+{
+    background-image: url(images/excursion_background.jpg);
+}
+
+.signature-background, .expedition-background, .hearth-background, .twilight-background, .excursion-background
 {
     display: flex;
     align-items: center;
@@ -647,6 +652,7 @@ main
 .product h3
 {
     font-weight: 400;
+    color: white;
 }
 
 .product h4

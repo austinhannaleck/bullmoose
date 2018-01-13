@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html>
+    
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Bullmoose Man Made</title>
+        <meta name="description" content="Description here">
+        <meta name="viewport" content="width=400px, maximum-scale=1.0" />
+        <link rel="stylesheet" href="styles.css">
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+   
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald:200,300,400" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+        <script type="text/javascript" src="responsive.js"></script>
+        <script type="text/javascript" src="CyberCart.js"></script>
+        <script src="https://www.paypalobjects.com/api/checkout.js"></script>
+    </head>
+    <body>
+        <nav id="nav" class="col-3">
+            
+            <div class="logo-div">
+                <img class="logo" src="images/bm_logo_small_outline.png">
+                <div id="nav-logo"></div> <!-- REPLACE WITH LOGO -->
+            </div>
+            <div class="nav-container">
+                <ul class="navbar">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href=beard.html>Beard</a></li>
+                    <li>Lady Moose</li>
+                </ul>
+            </div>
+            <div class="social-media">
+                <a href="https://www.facebook.com/Bullmoosemanmadeproducts/" target="_blank"><img src="images/fb_logo.png"></a>
+                <a href="https://www.instagram.com/bull.moose.man.made/?hl=en" target="_blank"><img src="images/glyph-logo_May2016.png"></a>
+                <a href="mailto:bullmoosemanmade@gmail.com?Subject=Bullmoose%20Inquiry" target="_top"><img src="images/mail_icon.png"></a>
+                <img class="cart" src="images/cart_icon.png">
+            </div>
+        </nav>
+        
+        <!-- MAIN BEGIN -->    
+        <main class="main main-column-9">
+            
+            <!-- ALTERNATE NAV -->
+            <section id="alternate-navbar" class="row">
+                <div>
+                    <img src="images/bm_logo_small_outline.png">
+                </div>
+                <ul class="navbar-alternate">
+                    <li><a href="index.html">Home</a></li>
+                    <li>Beard</li>
+                    <li><a href="ladymoose.html">Lady Moose</a></li>
+                    <li>
+                            <input  class="cart "type="image" src="images/cart_icon.png">
+                    </li>
+                </ul>
+            </section>
+            
+            <section class="beard row">
+                <div class="row products-header">
+                    <h1>Lady Moose Products</h1>
+                    <h4>Something here.</h4>
+                    <h4>Something else here</h4>
+                    <div class="line-container">
+                        <div class="list-bottom"></div>
+                    </div>
+                </div>
+                
+                 <!-- EXCURSION -->
+                <div class="excursion-background product-header-background col-12">
+                    <h1>Excursion</h1>
+                    <h3>Soft and Fresh</h3>
+                </div>
+                 <section id="excursion-items row">
+                    <h4 class="product-description">The cousin to Expedition but softer. Instead of wanting to dive deep in the jungle this scent makes you want to pull up a chair on a soft sand beach. </h4>
+                    <div class="col-6 product">
+                        <img src="images/excursion_salve.jpg">
+                            <h3>Excursion Salve</h3>
+                            <h4>$10.00</h4>
+                            <div class="cart-button" data-item="excursionSalve">
+                            <p>Add to Cart</p>
+                        </div>
+                     </div>
+                     <div class="col-6 product">
+                        <img src="images/excursion_shave_butter.jpg">
+                        <h3>Excursion Butter</h3>
+                        <h4>$10.00</h4>
+                         <div class="cart-button" data-item="excursionButter">
+                            <p>Add to Cart</p>
+                        </div>
+                     </div>
+                </section>
+            </section>   
+            
+            <!-- The Beard Guide Modal -->
+                <div id="myModal" class="modal">
+                    
+                    <!-- Modal content -->
+                    <section class="beard-modal">
+                        <section class="beard-intro row">
+                
+
+                <div class="beard-intro-header row">
+                    <span id="close">&times;</span>
+                    <h1>Product Guide</h1>
+                    
+                </div>
+                <h4>The beard world isn't so cut and dry. Whether you want the full suite of Signature, or are just looking to try something new, this handy guide below can help light the way.</h4>
+
+                </section>
+              
+            
+             <section class="product-types row">
+                    
+                    <div class="col-12 product-type-item">
+                        <h2>Oil</h2>
+                        <p>
+                            Beard oil is the foundation for any good beard care set. It is used for quick conditioning as well as adding an extra amount of sheen to your beard. If you are unsure about what to get oil is always a safe bet. Best used on beards under a half an inch and on beards over 2 inches long. 
+                        </p>
+                    </div>
+                    <div class="col-12 product-type-item">
+                        <h2>Balm</h2>
+                        <p>
+                            Beard balm is the next step up from oil. This acts a long term conditioner because of the beeswax and shea butter the product takes more time to make its way into the hairs. Although this doesn't add the amount of sheen oil does it makes up for it with all day conditioning. This is ideal for the medium sized beards because in addition to the conditioning it also helps with taming the wildest of manes.
+                        </p>
+                    </div>
+                    <div class="col-12 product-type-item">
+                        <h2>Wash</h2>
+                        <p>
+                            This is the best product to round out your beard care arsenal. Although it isn't used nearly as much as oil or balm its still a key player because it adds more conditioning in the shower when, normally, the beard is being stripped of its natural oils. Any beard length can use this product, but the longer the better, but that's the case with any beards.
+                        </p>
+                    </div>
+                    <div class="col-12 product-type-item">
+                        <h2>Shave Butter</h2>
+                        <p>
+                            For the men who can not grow a luscious mane or who aren't allowed to this product is made just for you. Crafted with the one goal of making shaving easy and bearable this product is made with specific oils that target the skin and softens it as you shave, so it reduces the irritation caused by shaving and negates the need for shaving cream as well as after shave. In addition to this because of its oil base it allows your razor to shave even closer and glide smoother then ever before. Recommended for a beard less then zero inches. 
+                        </p>
+                    </div>
+                </section>
+                        
+                    </section>
+                </div>
+                
+             <!-- CYBER CART MODAL -->
+            <section id="cybercart-modal">
+                <div class="shopping-cart row">
+                    <span id="cart-close">&times;</span>
+                    <h1>Shopping Cart</h1>
+                    <div id="items" class="row">
+                        
+                    </div>
+                    <div class="col-12 total-div">
+                        <div id="discount-div">
+                            <form>
+                                <h3>Discount Code</h3>
+                                <div class="flex-div">
+                                    <input id="discount-code" type="text">
+                                </div>
+                                <div class="flex-div">
+                                    <button id="apply-discount">Apply Coupon</button>
+                                </div>
+                            </form>
+                        </div>
+                        
+                        
+                        <div id="totals">
+                            <h3>Subtotal: <span id="subtotal"></span></h3>
+                            <h3 id="discount-value"></h3>
+                            <h3>Shipping: <span id="shipping"></span></h3>
+                            <hr>
+                            <h3>Total:    <span id="total"></span></h3>
+                            <div id="paypal-button"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <script>
+            
+            </script>
+            <!--
+            
+-->
+        </main>
+        
+        <script>
+            //Get the modal
+            var modal = document.getElementById('myModal');
+            
+            //Get the button that opens the modal
+            var btn1 = document.getElementById('modalBtn1');
+            
+            //Get the close button
+            var span = document.getElementById('close');
+            
+            btn1.onclick = function()
+            {
+                modal.style.display="block";
+            }
+            
+            span.onclick = function()
+            {
+                modal.style.display="none"
+            }
+            
+            window.onclick = function(event)
+            {
+                if(event.target == modal)
+                {
+                    modal.style.display = "none";
+                }
+            }
+        </script>
+    </body>
+</html>
