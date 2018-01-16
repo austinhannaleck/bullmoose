@@ -161,10 +161,25 @@ h4
     transition: background-position 2s, background-color 1s;
 }
 
+#alternate-navbar li
+{
+    position: relative;
+    font-size: 2em;
+    display: inline;
+    padding: 0 20px;
+}
+
 #alternate-navbar ul
 {
-    height: 55px;
     background-color: rgba(100,50,50,0.1);
+}
+
+@media only screen and (max-width: 550px)
+{
+    #alternate-navbar li 
+    {
+        display: block;
+    }
 }
 
 #alternate-navbar .cart
@@ -173,13 +188,7 @@ h4
     top: 5px;
 
 }
-#alternate-navbar li
-{
-    position: relative;
-    font-size: 2em;
-    display: inline;
-    padding: 0 20px;
-}
+
 
 #alternate-navbar li:hover
 {
