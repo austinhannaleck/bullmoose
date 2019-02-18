@@ -30,11 +30,12 @@ html, body
 /* Used to eliminate initial 15px padding from main */
 .main-column-9
 {
-    background-image: url(images/wood_background_sidebar.png);
+    background-image: url(images/wood-background3.png);
+    background-color: rgba(0, 0, 0, 0.904);
     background-attachment: fixed;
-    background-size: cover;
+    background-size: contain;
     /* This fills empty space with the background image */
-    padding: 0 20px;
+    padding: 0 3px;
     float: left;
     width: 75%;
 }
@@ -122,13 +123,13 @@ h4
     position: fixed;
     padding: 0px;
     height: 100%;
-    background-image: url(images/wood_background_sidebar.png);
+    background-image: url(images/wood-background3.png);
     background-size: contain;
 }
 
 #alternate-navbar
 {
-    background-image: url(images/wood_background_sidebar.png);
+    background-image: url(images/wood-background3.png);
     background-size: contain;
     text-align: center;
 }
@@ -159,6 +160,10 @@ h4
     background-size: 200% 100%;
     background-position:left bottom;
     transition: background-position 2s, background-color 1s;
+}
+
+.navbar li a {
+    display: block;
 }
 
 #alternate-navbar li
@@ -213,6 +218,7 @@ h4
    /* background: linear-gradient(to right, rgb(0,89,220) 34%, rgb(252,92,92) 65%);*/
     background-position: right bottom;
     background-size: 300% 100%;
+    cursor: pointer;
 }
 
 @keyframes nav-hover
@@ -291,7 +297,7 @@ main
 
 .intro-div
 {
-    padding: 10px;
+    padding: 20px;
     color: white;
     height: 800px;
     text-align: center;
@@ -299,7 +305,7 @@ main
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-image: url(images/twilight_background_full.jpg);
+    background-image: url(images/expedition_background.jpg);
     background-size: cover;
     background-position: center;
 }
@@ -536,7 +542,6 @@ main
 {
     
     color: white;
-    
     background-color: rgb(200,200,200);
     font-size: 1.5em;
     display: inline-block;
@@ -628,11 +633,10 @@ main
 
 .product-description
 {
-    color: white;
-    background-color: rgba(200,200,200,0.2);
+    background-color: rgb(20,20,20);
+    border-radius: 10;
     text-align: center;
     padding: 10px 100px;
-    margin-bottom: 10px;
 }
 
 @media only screen and (max-width: 800px)
@@ -645,7 +649,6 @@ main
 
 .product-details
 {
-    background-color: rgba(157,22,22, 0.4);
         /*rgba(10,62,112,0.5);*/
     width: 360px;
     max-width: 360px;
@@ -653,16 +656,24 @@ main
     padding: 5px 0;
 }
 
+.product {
+    padding: 60px;
+}
+
 .product h3
 {
     font-weight: 400;
     color: white;
+    
 }
 
 .product h4
 {
-    color: rgb(200,200,200);
+    color: rgb(10,62,112);
+    font-weight: bold;
     margin-bottom: 20px;
+    background-color: white;
+    border-radius: 10px;
 }
 
 /* Overall style for all product headers */
@@ -706,7 +717,7 @@ main
 }
 .products-header
 {
-    background-image: url(images/teddy.jpg);
+    background-image: url(images/teddy2.jpg);
     background-position: center;
     color: rgb(50,50,50);
     font-weight: 400;
@@ -772,13 +783,10 @@ main
 
 .beard img
 {
-    width: 360px;
+    width: 260px;
     max-width: 100%;
-    border-radius: 8px;
+    border-radius: 0px;
 }
-
-
-
 
 .item-backside
 {
@@ -907,13 +915,14 @@ main
 
 .cart-button
 {
-    padding: 5px 30px;
-    font-size: 1.5em;
+    text-transform: uppercase;
+    padding: 5px 20px;
+    font-size: 2em;
     text-align: center;
-    background-color: rgb(150,15,15);
-    border: 2px solid white;
+    background-color: rgb(20,20,20);
+    border-radius: 8px;
     color: white;
-    transition: all .5s;
+    transition: all .2s;
 }
 
 .cart-button:hover
@@ -921,6 +930,7 @@ main
     background-color: white;
     color: black;
     cursor: pointer;
+    letter-spacing: 1px;
 }
 
 #cybercart-modal

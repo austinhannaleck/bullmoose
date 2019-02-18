@@ -42,6 +42,7 @@ $(document).ready(function()
         subtotal: 0,
         shipping: 5,
         discount: 0,
+        discountAmount: 0,
         
         /* List of items with price and quantity */
         contents:
@@ -65,7 +66,7 @@ $(document).ready(function()
         discounts:
         {
             // Add discount with coupon name and percentage off below
-            buyme: 10
+            BULL: 10
         },
         
         discountApplied: false
@@ -179,19 +180,19 @@ $(document).ready(function()
         }
         
         
-        var Discount = parseFloat(Cart.subtotal * Cart.discount).toFixed(2);
+        Cart.discountAmount = parseFloat(Cart.subtotal * Cart.discount).toFixed(2);
         // Update discount value, since new items may have been added to cart
         // since discount was initially applied. If subtotal is zero,
         // hide discount element.
         if(Cart.subtotal > 0 && true == Cart.discountApplied)
         {
             $('#discount-value').css('display', 'block');
-            $('#discount-value').text("Discount: -$" + Discount);
+            $('#discount-value').text("Discount: -$" + Cart.discountAmount);
         }
         else
         {
             $('#discount-value').css('display', 'none');
-            Discount = 0.0;
+            Cart.discountAmount = 0.0;
         }
         
         // Cut off last character of string
@@ -218,7 +219,7 @@ $(document).ready(function()
         // Display subtotal.
         $('#subtotal').text("$" + parseFloat(Cart.subtotal).toFixed(2));
         // Add subtotal to total and force to the 2nd decimal place.
-        $('#total').text("$" + parseFloat((Cart.subtotal + Cart.shipping) - Discount).toFixed(2));
+        $('#total').text("$" + parseFloat((Cart.subtotal + Cart.shipping) - Cart.discountAmount).toFixed(2));
         
         // Add event handlers for quantity buttons in cart.
         $(".item-quantity").change(function()
@@ -282,7 +283,7 @@ $(document).ready(function()
                             {
                                 amount: 
                                 { 
-                                    total: (parseFloat(Cart.subtotal) + parseFloat(Cart.shipping)).toFixed(2), 
+                                    total: (parseFloat(Cart.subtotal) - Cart.discountAmount + parseFloat(Cart.shipping)).toFixed(2), 
                                     currency: 'USD',
                                     details:
                                     {
