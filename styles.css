@@ -603,6 +603,10 @@ main
     color: white;
 }
 
+#excursion-items {
+    margin-top: 15px;
+}
+
 .expedition-background
 {
     background-image: url(images/fern.jpg);
@@ -633,10 +637,10 @@ main
 
 .product-description
 {
-    background-color: rgb(20,20,20);
     border-radius: 10;
     text-align: center;
     padding: 10px 100px;
+    color: white;
 }
 
 @media only screen and (max-width: 800px)
@@ -669,10 +673,9 @@ main
 
 .product h4
 {
-    color: rgb(10,62,112);
+    color: white;
     font-weight: bold;
     margin-bottom: 20px;
-    background-color: white;
     border-radius: 10px;
 }
 
@@ -717,7 +720,7 @@ main
 }
 .products-header
 {
-    background-image: url(images/teddy2.jpg);
+    background-image: url(images/teddy.jpg);
     background-position: center;
     color: rgb(50,50,50);
     font-weight: 400;
@@ -749,7 +752,7 @@ main
     text-align: center;
     justify-content: center;
     align-content: center;
-    color: white;
+    color: rgb(167,42,42);
     font-weight: 400;
     background-color: rgb(147,12,12);
     border-radius: 0 0 15px 15px; 
@@ -829,9 +832,14 @@ main
     transition: all .6s;
 }
 
+#modalBtn1 {
+    font-weight: bold;
+    color: rgb(187,82,82);
+}
+
 #modalBtn1:hover
 {
-    color: rgba(187,52,52,1);
+    color: rgba(207,92,92,1);
 }
 
 .modal{
@@ -923,6 +931,9 @@ main
     border-radius: 8px;
     color: white;
     transition: all .2s;
+    width: 250px;
+    max-width: 100%;
+    margin: auto;
 }
 
 .cart-button:hover

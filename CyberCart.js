@@ -206,7 +206,7 @@ $(document).ready(function()
         // Display a message if the cart is empty.
         if($('#items').is(':empty'))
         {
-            $('#items').append("<div><h3 class='empty-cart'>Your cart is empty!</h3></div>");
+            $('#items').append("<div><h3 class='empty-cart'>Your cart is empty! What are you waiting for?</h3></div>");
             
             // Reset coupon code states.
             Cart.discount = 0;
